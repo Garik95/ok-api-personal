@@ -1,5 +1,5 @@
 module.exports = (mongoose) => {
-    return mongoose.model('MFO', mongoose.Schema({
+    const MFOSchema = new mongoose.Schema({
         NCI_ID: {
             type: String
         },
@@ -10,7 +10,8 @@ module.exports = (mongoose) => {
             type: String
         },
         REGION_ID: {
-            type: {type: mongoose.Schema.Types.ObjectId, ref: 'Region'}
+            type: String,
+            ref: 'Region'
         },
         HEADER_ID: {
             type: String
@@ -30,5 +31,19 @@ module.exports = (mongoose) => {
         ACT: {
             type: String
         },
-    }))
+    }, {
+        toJSON: {
+            virtuals: true
+        }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
+        toObject: {
+            virtuals: true
+        } // So `console.log()` and other functions that use `toObject()` include virtuals 
+    });
+
+    MFOSchema.virtual('region', {
+        ref: 'Region',
+        localField: 'REGION_ID',
+        foreignField: 'REGION_ID'
+    });
+    return mongoose.model('MFO', MFOSchema)
 }

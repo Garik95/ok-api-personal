@@ -18,10 +18,10 @@ regionSchema = require('./refs/Region')(mongoose)
 db.Region = mongoose.model('Region', regionSchema);
 
 db.Bank = require('./refs/Bank')(mongoose)
-db.Distr = require('./refs/Distr')(mongoose,regionSchema)
+db.Distr = require('./refs/Distr')(mongoose)
 db.Family = require('./refs/Family')(mongoose)
 db.Langs = require('./refs/Langs')(mongoose)
-db.MFO = require('./refs/MFO')(mongoose,regionSchema)
+db.Mfo = require('./refs/MFO')(mongoose)
 db.Nation = require('./refs/Nation')(mongoose)
 db.Obraz = require('./refs/Obraz')(mongoose)
 db.Party = require('./refs/Party')(mongoose)

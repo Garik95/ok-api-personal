@@ -15,6 +15,9 @@ app.use(express.urlencoded({
 }));
 // general routes
 // require('./routes/v1')(app);
+require('./routes/v1/refs/DistrRoute')(app)
+require('./routes/v1/refs/RegionRoute')(app)
+require('./routes/v1/refs/MfoRoute')(app)
 
 // specific routes
 // require('./routes/v1/testRoute')(app);
