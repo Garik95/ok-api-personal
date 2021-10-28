@@ -1,5 +1,5 @@
-module.exports = (mongoose) => {
-    return new mongoose.Schema({
+module.exports = (mongoose, pre) => {
+    return mongoose.model(pre + 'Region', new mongoose.Schema({
         NCI_ID: {
             type: String
         },
@@ -21,5 +21,5 @@ module.exports = (mongoose) => {
         ACT: {
             type: String
         },
-    })
+    }))
 }

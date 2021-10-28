@@ -1,4 +1,4 @@
-module.exports = (mongoose) => {
+module.exports = (mongoose, pre) => {
     const MFOSchema = new mongoose.Schema({
         NCI_ID: {
             type: String
@@ -45,5 +45,5 @@ module.exports = (mongoose) => {
         localField: 'REGION_ID',
         foreignField: 'REGION_ID'
     });
-    return mongoose.model('MFO', MFOSchema)
+    return mongoose.model(pre + 'MFO', MFOSchema)
 }

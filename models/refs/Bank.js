@@ -1,4 +1,4 @@
-module.exports = (mongoose) => {
+module.exports = (mongoose,pre) => {
     const BankSchema = new mongoose.Schema({
         NCI_ID: {
             type: String
@@ -32,5 +32,5 @@ module.exports = (mongoose) => {
         },
     })
 
-    return mongoose.model('Bank',BankSchema);
+    return mongoose.model(pre + 'Bank',BankSchema);
 }

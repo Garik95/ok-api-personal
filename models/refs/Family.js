@@ -1,4 +1,4 @@
-module.exports = (mongoose) => {
+module.exports = (mongoose,pre) => {
     const FamilySchema = new mongoose.Schema({
         NCI_ID: {
             type: String
@@ -19,5 +19,5 @@ module.exports = (mongoose) => {
             type: String
         },
     });
-    return mongoose.model('Family',FamilySchema)
+    return mongoose.model(pre + 'Family',FamilySchema)
 }

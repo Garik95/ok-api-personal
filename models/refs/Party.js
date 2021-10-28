@@ -1,5 +1,5 @@
-module.exports = (mongoose) => {
-    return mongoose.model('Party', new mongoose.Schema({
+module.exports = (mongoose, pre) => {
+    return mongoose.model(pre + 'Party', new mongoose.Schema({
         NCI_ID: {
             type: String
         },
