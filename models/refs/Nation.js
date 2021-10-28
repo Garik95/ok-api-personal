@@ -15,8 +15,8 @@ module.exports = (mongoose,pre) => {
         DATE_CLOSE: {
             type: Number
         },
-        ACT: {
-            type: String
+        STATUS: {
+            type: Number,enum:[0,1],default:1
         },
     }))
 }
