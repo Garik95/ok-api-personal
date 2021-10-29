@@ -1,0 +1,76 @@
+[{
+    "collection": "Bank",
+    "filename": "migration\/ref\/BANK.json"
+}, {
+    "collection": "Distr",
+    "filename": "migration\/ref\/DISTR.json"
+}, {
+    "collection": "Family",
+    "filename": "migration\/ref\/FAMILY.json"
+}, {
+    "collection": "Lang",
+    "filename": "migration\/ref\/LANG.json"
+}, {
+    "collection": "Lang__s",
+    "filename": "migration\/ref\/LANGS.json"
+}, {
+    "collection": "Mfo",
+    "filename": "migration\/ref\/MFO.json"
+}, {
+    "collection": "Nation",
+    "filename": "migration\/ref\/NATION.json"
+}, {
+    "collection": "Obraz",
+    "filename": "migration\/ref\/OBRAZ.json"
+}, {
+    "collection": "Party",
+    "filename": "migration\/ref\/PARTY.json"
+}, {
+    "collection": "Prich",
+    "filename": "migration\/ref\/PRICH.json"
+}, {
+    "collection": "RegionRef",
+    "filename": "migration\/ref\/REGION.json"
+}, {
+    "collection": "Str",
+    "filename": "migration\/ref\/STR.json"
+}, {
+    "collection": "UchStep",
+    "filename": "migration\/ref\/UCH_STEP.json"
+}, {
+    "collection": "UchZav",
+    "filename": "migration\/ref\/UCH_ZAV.json"
+}, {
+    "collection": "UchZvn",
+    "filename": "migration\/ref\/UCH_ZVN.json"
+}, {
+    "collection": "PostCB",
+    "filename": "migration\/ref\/POST.json"
+}, {
+    "collection": "FamilyStatus",
+    "filename": "migration\/ref\/FAMILY_STATUS.json"
+}, {
+    "collection": "Education",
+    "filename": "migration\/ref\/EDUCATION.json"
+}, {
+    "collection": "EducationType",
+    "filename": "migration\/ref\/EDUCATION_TYPE.json"
+}, {
+    "collection": "Branch",
+    "filename": "migration\/Branch.json"
+}, {
+    "collection": "DepType",
+    "filename": "migration\/DepType.json"
+}, {
+    "collection": "Entity",
+    "filename": "migration\/Entity.json"
+}, {
+    "collection": "Post",
+    "filename": "migration\/Post.json"
+}, {
+    "collection": "PostGroup",
+    "filename": "migration\/PostGroup.json"
+}, {
+    "collection": "Region",
+    "filename": "migration\/Region.json"
+}]
