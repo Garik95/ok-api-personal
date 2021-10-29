@@ -14,10 +14,28 @@ app.use(express.urlencoded({
     extended: true
 }));
 // general routes
+require('./routes/v1/BranchRoute')(app)
+
+
 // require('./routes/v1')(app);
+require('./routes/v1/refs/BankRoute')(app)
 require('./routes/v1/refs/DistrRoute')(app)
-require('./routes/v1/refs/RegionRoute')(app)
+require('./routes/v1/refs/EducationRoute')(app)
+require('./routes/v1/refs/EducationTypeRoute')(app)
+require('./routes/v1/refs/FamilyRoute')(app)
+require('./routes/v1/refs/FamilyStatusRoute')(app)
+require('./routes/v1/refs/LangRoute')(app)
+require('./routes/v1/refs/LangsRoute')(app)
 require('./routes/v1/refs/MfoRoute')(app)
+require('./routes/v1/refs/NationRoute')(app)
+require('./routes/v1/refs/ObrazRoute')(app)
+require('./routes/v1/refs/PartyRoute')(app)
+require('./routes/v1/refs/PrichRoute')(app)
+require('./routes/v1/refs/RegionRoute')(app)
+require('./routes/v1/refs/StrRoute')(app)
+require('./routes/v1/refs/UchStepRoute')(app)
+require('./routes/v1/refs/UchZavRoute')(app)
+require('./routes/v1/refs/UchZvnRoute')(app)
 
 // specific routes
 // require('./routes/v1/testRoute')(app);

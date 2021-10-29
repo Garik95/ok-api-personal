@@ -10,8 +10,7 @@ module.exports = (mongoose, pre) => {
             type: String
         },
         REGION_ID: {
-            type: String,
-            ref: 'Region'
+            type: String
         },
         HEADER_ID: {
             type: String
@@ -41,7 +40,7 @@ module.exports = (mongoose, pre) => {
     });
 
     MFOSchema.virtual('region', {
-        ref: 'Region',
+        ref: 'ref-Region',
         localField: 'REGION_ID',
         foreignField: 'REGION_ID'
     });

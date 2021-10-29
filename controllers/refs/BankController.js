@@ -1,9 +1,9 @@
 const db = require('../../models/index');
 const mongoose = require('mongoose');
-const Region = db.RegionRef;
+const refBank = db.Bank;
 
 exports.findAll = (req, res) => {
-    Region.find().then(data => {
+    refBank.find().then(data => {
             res.send(data);
         })
         .catch(err => {
@@ -17,7 +17,7 @@ exports.findById = (req, res) => {
     try {
         var id = req.params.id
         if (mongoose.Types.ObjectId.isValid(id))
-            Region.findById(id)
+            refBank.findById(id)
             .then(data => {
                 res.send(data);
             })

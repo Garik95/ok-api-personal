@@ -11,7 +11,7 @@ module.exports = (mongoose,pre) => {
         },
         REGION_ID: {
             type: String,
-            ref: 'Region'
+            // ref: 'Region'
         },
         DATE_OPEN: {
             type: Number
@@ -32,7 +32,7 @@ module.exports = (mongoose,pre) => {
     })
 
     DistrSchema.virtual('region', {
-        ref: 'Region',
+        ref: 'ref-Region',
         localField: 'REGION_ID',
         foreignField: 'REGION_ID'
     });
