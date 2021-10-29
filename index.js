@@ -15,6 +15,11 @@ app.use(express.urlencoded({
 }));
 // general routes
 require('./routes/v1/BranchRoute')(app)
+require('./routes/v1/DepTypeRoute')(app)
+require('./routes/v1/EntityRoute')(app)
+require('./routes/v1/PostRoute')(app)
+require('./routes/v1/PostGroupRoute')(app)
+require('./routes/v1/RegionRoute')(app)
 
 
 // require('./routes/v1')(app);

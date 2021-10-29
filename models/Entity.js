@@ -40,12 +40,17 @@ module.exports = (mongoose) => {
     EntitySchema.virtual('region', {
         ref: 'Region',
         localField: 'REGIONID',
-        foreignField: 'REGION_ID'
+        foreignField: 'ID'
     });
 
     EntitySchema.virtual('deptype', {
         ref: 'DepType',
         localField: 'TYPE',
+        foreignField: 'ID'
+    });
+    EntitySchema.virtual('parent', {
+        ref: 'Entity',
+        localField: 'PARENTCODE',
         foreignField: 'ID'
     });
 
