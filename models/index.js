@@ -15,6 +15,9 @@ const db = mongoose
 // models
 // emp
 db.Personal = require('./Personal/Personal')(mongoose);
+db.PerEducation = require('./Personal/Education')(mongoose);
+db.PerEmployment = require('./Personal/Employment')(mongoose);
+db.PerFamily = require('./Personal/Family')(mongoose);
 
 db.Branch = require('./Branch')(mongoose);
 db.DepType = require('./DepType')(mongoose);

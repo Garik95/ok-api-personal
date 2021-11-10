@@ -26,7 +26,7 @@ module.exports = (mongoose) => {
         },
         GENDER_CODE: {
             type: String,
-            enum: [1,2],
+            enum: [1, 2],
             required: true
         },
         EMPLOYMENT_DATE: {
@@ -174,6 +174,15 @@ module.exports = (mongoose) => {
             type: String,
             required: true
         },
+        EDUCATION: {
+            type: mongoose.ObjectId,
+        },
+        EMPLOYMENT: {
+            type: mongoose.ObjectId,
+        },
+        RELATION: {
+            type: mongoose.ObjectId,
+        }
     });
 
     PersonalSchema.virtual('branch', {
@@ -224,7 +233,7 @@ module.exports = (mongoose) => {
         foreignField: 'ZVN_ID',
         justOne: true
     });
-//  under question
+    //  under question
     // PersonalSchema.virtual('langs', {
     //     ref: 'ref-Lang__s',
     //     localField: 'LANGS',
@@ -306,6 +315,27 @@ module.exports = (mongoose) => {
         ref: 'ref-Distr',
         localField: 'HOME_ADDRESSFACT_DISTR',
         foreignField: 'DISTR',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('education', {
+        ref: 'PerEducation',
+        localField: 'EDUCATION',
+        foreignField: '_id',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('employment', {
+        ref: 'PerEmployment',
+        localField: 'EMPLOYMENT',
+        foreignField: '_id',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('relation', {
+        ref: 'PerFamily',
+        localField: 'RELATION',
+        foreignField: '_id',
         justOne: true
     });
 
