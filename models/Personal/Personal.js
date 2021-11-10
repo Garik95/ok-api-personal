@@ -197,27 +197,121 @@ module.exports = (mongoose) => {
         justOne: true
     });
 
-    BRANCH
-    DEPARTMENT_CODE
-    POST_CODE
-    WORKINGRATE
-    NATIONALITY_CODE
-    EDUCATION_TITLE_CODE
-    UCH_STEP_CODE
-    UCH_ZVN_CODE
-    LANGS
-    LANG
-    PRIZES
-    IS_PARTY
-    COD_STR_BIRTH
-    COD_STR_LIVE
-    COD_STR_SITIZENT
-    HOME_ADDRESS_REGION_ID
-    HOME_ADDRESS_DISTR
-    HOME_ADDRESSFACT_REGION_ID
-    HOME_ADDRESSFACT_DISTR
-    FAMILY_STATUS_CODE
+    PersonalSchema.virtual('nation', {
+        ref: 'ref-Nation',
+        localField: 'NATIONALITY_CODE',
+        foreignField: 'NAT_ID',
+        justOne: true
+    });
 
+    PersonalSchema.virtual('obraz', {
+        ref: 'ref-Obraz',
+        localField: 'EDUCATION_TITLE_CODE',
+        foreignField: 'OBR_ID',
+        justOne: true
+    });
 
+    PersonalSchema.virtual('uchStep', {
+        ref: 'ref-UchStep',
+        localField: 'UCH_STEP_CODE',
+        foreignField: 'ZVN_ID',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('uchZvn', {
+        ref: 'ref-UchZvn',
+        localField: 'UCH_ZVN_CODE',
+        foreignField: 'ZVN_ID',
+        justOne: true
+    });
+//  under question
+    // PersonalSchema.virtual('langs', {
+    //     ref: 'ref-Lang__s',
+    //     localField: 'LANGS',
+    //     foreignField: 'LANG_ID',
+    //     justOne: true
+    // });
+
+    // PersonalSchema.virtual('lang', {
+    //     ref: 'ref-Lang',
+    //     localField: 'LANG',
+    //     foreignField: 'UROV_ID',
+    //     justOne: true
+    // });
+
+    // PersonalSchema.virtual('prize', {
+    //     ref: 'ref-Lang',
+    //     localField: 'LANG',
+    //     foreignField: 'UROV_ID',
+    //     justOne: true
+    // });
+
+    PersonalSchema.virtual('party', {
+        ref: 'ref-Party',
+        localField: 'IS_PARTY',
+        foreignField: 'PART_ID',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('familyStatus', {
+        ref: 'ref-FamilyStatus',
+        localField: 'FAMILY_STATUS_CODE',
+        foreignField: 'FAMILY_STATUS_CODE',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('birth', {
+        ref: 'ref-Str',
+        localField: 'COD_STR_BIRTH',
+        foreignField: 'CODE_STR',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('live', {
+        ref: 'ref-Str',
+        localField: 'COD_STR_LIVE',
+        foreignField: 'CODE_STR',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('citizen', {
+        ref: 'ref-Str',
+        localField: 'COD_STR_LIVE',
+        foreignField: 'COD_STR_SITIZENT',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('addrRegion', {
+        ref: 'ref-Region',
+        localField: 'HOME_ADDRESS_REGION_ID',
+        foreignField: 'REGION_ID',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('addrFactRegion', {
+        ref: 'ref-Region',
+        localField: 'HOME_ADDRESSFACT_REGION_ID',
+        foreignField: 'REGION_ID',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('addrDistr', {
+        ref: 'ref-Distr',
+        localField: 'HOME_ADDRESS_DISTR',
+        foreignField: 'DISTR',
+        justOne: true
+    });
+
+    PersonalSchema.virtual('addrFactDistr', {
+        ref: 'ref-Distr',
+        localField: 'HOME_ADDRESSFACT_DISTR',
+        foreignField: 'DISTR',
+        justOne: true
+    });
+
+    // WORKINGRATE
+    // LANGS
+    // LANG
+    // PRIZES
     return mongoose.model('Personal', PersonalSchema)
 }
