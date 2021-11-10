@@ -41,19 +41,22 @@ module.exports = (mongoose) => {
     PostSchema.virtual('region', {
         ref: 'Region',
         localField: 'REGIONID',
-        foreignField: 'ID'
+        foreignField: 'ID',
+        justOne: true
     });
 
     PostSchema.virtual('refPost', {
         ref: 'ref-Post',
         localField: 'POST_ID_CB',
-        foreignField: 'DOLJ_ID'
+        foreignField: 'DOLJ_ID',
+        justOne: true
     });
 
     PostSchema.virtual('postgroup', {
         ref: 'PostGroup',
         localField: 'GROUPID',
-        foreignField: 'ID'
+        foreignField: 'ID',
+        justOne: true
     });
 
     return mongoose.model('Post', PostSchema)

@@ -43,7 +43,8 @@ module.exports = (mongoose, pre) => {
     EducationSchema.virtual('eduType', {
         ref: 'ref-EducationType',
         localField: 'EDUCATION_CODE',
-        foreignField: 'EDUCATION_CODE'
+        foreignField: 'EDUCATION_CODE',
+        justOne: true
     });
     return mongoose.model(pre + 'Education', EducationSchema)
 }

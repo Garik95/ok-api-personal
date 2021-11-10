@@ -34,7 +34,8 @@ module.exports = (mongoose,pre) => {
     DistrSchema.virtual('region', {
         ref: 'ref-Region',
         localField: 'REGION_ID',
-        foreignField: 'REGION_ID'
+        foreignField: 'REGION_ID',
+        justOne: true
     });
     return mongoose.model(pre + 'Distr', DistrSchema)
 }

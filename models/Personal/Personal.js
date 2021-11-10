@@ -179,20 +179,45 @@ module.exports = (mongoose) => {
     PersonalSchema.virtual('branch', {
         ref: 'Branch',
         localField: 'BRANCH',
-        foreignField: 'MFO'
+        foreignField: 'MFO',
+        justOne: true
     });
 
     PersonalSchema.virtual('entity', {
         ref: 'Entity',
         localField: 'DEPARTMENT_CODE',
-        foreignField: 'ID'
+        foreignField: 'ID',
+        justOne: true
     });
 
     PersonalSchema.virtual('post', {
         ref: 'Post',
         localField: 'POST_CODE',
-        foreignField: 'ID'
+        foreignField: 'ID',
+        justOne: true
     });
+
+    BRANCH
+    DEPARTMENT_CODE
+    POST_CODE
+    WORKINGRATE
+    NATIONALITY_CODE
+    EDUCATION_TITLE_CODE
+    UCH_STEP_CODE
+    UCH_ZVN_CODE
+    LANGS
+    LANG
+    PRIZES
+    IS_PARTY
+    COD_STR_BIRTH
+    COD_STR_LIVE
+    COD_STR_SITIZENT
+    HOME_ADDRESS_REGION_ID
+    HOME_ADDRESS_DISTR
+    HOME_ADDRESSFACT_REGION_ID
+    HOME_ADDRESSFACT_DISTR
+    FAMILY_STATUS_CODE
+
 
     return mongoose.model('Personal', PersonalSchema)
 }
