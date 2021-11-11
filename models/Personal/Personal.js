@@ -233,27 +233,6 @@ module.exports = (mongoose) => {
         foreignField: 'ZVN_ID',
         justOne: true
     });
-    //  under question
-    // PersonalSchema.virtual('langs', {
-    //     ref: 'ref-Lang__s',
-    //     localField: 'LANGS',
-    //     foreignField: 'LANG_ID',
-    //     justOne: true
-    // });
-
-    // PersonalSchema.virtual('lang', {
-    //     ref: 'ref-Lang',
-    //     localField: 'LANG',
-    //     foreignField: 'UROV_ID',
-    //     justOne: true
-    // });
-
-    // PersonalSchema.virtual('prize', {
-    //     ref: 'ref-Lang',
-    //     localField: 'LANG',
-    //     foreignField: 'UROV_ID',
-    //     justOne: true
-    // });
 
     PersonalSchema.virtual('party', {
         ref: 'ref-Party',
@@ -340,8 +319,5 @@ module.exports = (mongoose) => {
     });
 
     // WORKINGRATE
-    // LANGS
-    // LANG
-    // PRIZES
     return mongoose.model('Personal', PersonalSchema)
 }
