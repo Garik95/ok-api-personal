@@ -21,6 +21,14 @@ require('./routes/v1/PostRoute')(app)
 require('./routes/v1/PostGroupRoute')(app)
 require('./routes/v1/RegionRoute')(app)
 
+// personal routes
+require('./routes/v1/Personal/PersonalRoute')(app)
+require('./routes/v1/Personal/EducationRoute')(app)
+require('./routes/v1/Personal/EmploymentRoute')(app)
+require('./routes/v1/Personal/FamilyRoute')(app)
+require('./routes/v1/Personal/LangsRoute')(app)
+require('./routes/v1/Personal/PrizeRoute')(app)
+
 
 // require('./routes/v1')(app);
 require('./routes/v1/refs/BankRoute')(app)

@@ -18,6 +18,8 @@ db.Personal = require('./Personal/Personal')(mongoose);
 db.PerEducation = require('./Personal/Education')(mongoose);
 db.PerEmployment = require('./Personal/Employment')(mongoose);
 db.PerFamily = require('./Personal/Family')(mongoose);
+db.PerLang = require('./Personal/Langs')(mongoose);
+db.PerPrize = require('./Personal/Prize')(mongoose);
 
 db.Branch = require('./Branch')(mongoose);
 db.DepType = require('./DepType')(mongoose);
