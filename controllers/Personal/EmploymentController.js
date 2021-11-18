@@ -4,8 +4,8 @@ const Model = db.PerEmployment;
 
 exports.findAll = (req, res) => {
     Model.find().then(data => {
-            res.send(data);
-        })
+        res.send(data);
+    })
         .catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred"
@@ -15,8 +15,8 @@ exports.findAll = (req, res) => {
 
 exports.findAllNodes = async (req, res) => {
     Model.find().populate('region').then(data => {
-            res.send(data);
-        })
+        res.send(data);
+    })
         .catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred"
@@ -28,15 +28,16 @@ exports.findById = (req, res) => {
     try {
         var id = req.params.id
         if (mongoose.Types.ObjectId.isValid(id))
-            Model.findById(id)
-            .then(data => {
-                res.send(data);
-            })
-            .catch(err => {
-                res.status(500).send({
-                    message: err.message || "Some error occurred"
+            Model.find({ PERSONAL_ID: id })
+                .then(data => {
+                    console.log(data);
+                    res.send(data);
+                })
+                .catch(err => {
+                    res.status(500).send({
+                        message: err.message || "Some error occurred"
+                    });
                 });
-            });
     } catch (err) {
         res.send(err)
     }

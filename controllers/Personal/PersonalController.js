@@ -14,7 +14,7 @@ exports.findAll = (req, res) => {
 }
 
 exports.findAllNodes = async (req, res) => {
-    Model.find().populate('region').then(data => {
+    Model.find().populate('entity').populate('post').then(data => {
             res.send(data);
         })
         .catch(err => {
@@ -29,6 +29,24 @@ exports.findById = (req, res) => {
         var id = req.params.id
         if (mongoose.Types.ObjectId.isValid(id))
             Model.findById(id)
+            .then(data => {
+                res.send(data);
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message: err.message || "Some error occurred"
+                });
+            });
+    } catch (err) {
+        res.send(err)
+    }
+}
+
+exports.findByIdAll = (req, res) => {
+    try {
+        var id = req.params.id
+        if (mongoose.Types.ObjectId.isValid(id))
+            Model.findById(id).populate('entity').populate('post')
             .then(data => {
                 res.send(data);
             })
