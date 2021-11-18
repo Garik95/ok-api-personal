@@ -30,7 +30,6 @@ exports.findById = (req, res) => {
         if (mongoose.Types.ObjectId.isValid(id))
             Model.find({ PERSONAL_ID: id })
                 .then(data => {
-                    console.log(data);
                     res.send(data);
                 })
                 .catch(err => {
