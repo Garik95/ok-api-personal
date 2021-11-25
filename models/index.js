@@ -13,21 +13,9 @@ const db = mongoose
     });
 
 // models
-// emp
-db.Personal = require('./Personal/Personal')(mongoose);
-db.PerEducation = require('./Personal/Education')(mongoose);
-db.PerEmployment = require('./Personal/Employment')(mongoose);
-db.PerFamily = require('./Personal/Family')(mongoose);
-db.PerLang = require('./Personal/Langs')(mongoose);
-db.PerPrize = require('./Personal/Prize')(mongoose);
 
-db.Branch = require('./Branch')(mongoose);
-db.DepType = require('./DepType')(mongoose);
-db.Entity = require('./Entity')(mongoose);
-db.Post = require('./Post')(mongoose);
-db.PostGroup = require('./PostGroup')(mongoose);
-db.Region = require('./Region')(mongoose);
-// Refs
+
+//Refs
 pre = 'ref-'
 db.Bank = require('./refs/Bank')(mongoose, pre)
 db.Distr = require('./refs/Distr')(mongoose, pre)
@@ -48,6 +36,25 @@ db.UchZav = require('./refs/UchZav')(mongoose, pre)
 db.UchZvn = require('./refs/UchZvn')(mongoose, pre)
 db.PostCB = require('./refs/Post')(mongoose, pre)
 db.RegionRef = require('./refs/Region')(mongoose, pre)
+
+
+
+// emp
+db.Personal = require('./Personal/Personal')(mongoose);
+db.PerEducation = require('./Personal/Education')(mongoose);
+db.PerEmployment = require('./Personal/Employment')(mongoose);
+db.PerFamily = require('./Personal/Family')(mongoose);
+db.PerLang = require('./Personal/Langs')(mongoose);
+db.PerPrize = require('./Personal/Prize')(mongoose);
+
+db.Branch = require('./Branch')(mongoose);
+db.DepType = require('./DepType')(mongoose);
+db.Entity = require('./Entity')(mongoose);
+db.Post = require('./Post')(mongoose);
+db.PostGroup = require('./PostGroup')(mongoose);
+db.Region = require('./Region')(mongoose);
+
+
 // misc
 db.Seq = require('./Seq')(mongoose);
 console.log(db);

@@ -46,7 +46,7 @@ exports.findByIdAll = (req, res) => {
     try {
         var id = req.params.id
         if (mongoose.Types.ObjectId.isValid(id))
-            Model.findById(id).populate('entity').populate('post')
+            Model.findById(id).populate('entity').populate('post').populate('branch')
             .then(data => {
                 res.send(data);
             })

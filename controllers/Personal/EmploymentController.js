@@ -28,7 +28,7 @@ exports.findById = (req, res) => {
     try {
         var id = req.params.id
         if (mongoose.Types.ObjectId.isValid(id))
-            Model.find({ PERSONAL_ID: id })
+            Model.find({ PERSONAL_ID: id }).populate('post')
                 .then(data => {
                     res.send(data);
                 })

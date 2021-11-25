@@ -1,5 +1,5 @@
-module.exports = (mongoose,pre) => {
-    return mongoose.model(pre + 'Nation', mongoose.Schema({
+module.exports = (mongoose, pre) => {
+    const nationSchema = new mongoose.Schema({
         NCI_ID: {
             type: String
         },
@@ -16,7 +16,21 @@ module.exports = (mongoose,pre) => {
             type: Number
         },
         STATUS: {
-            type: Number,enum:[0,1],default:1
+            type: Number, enum: [0, 1], default: 1
         },
-    }))
+    }, {
+        toJSON: {
+            virtuals: true
+        }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
+        toObject: {
+            virtuals: true
+        }
+    });
+
+    nationSchema.virtual('nation_id').get(function () {
+        return Number(this.NAT_ID);
+    });
+
+    return mongoose.model(pre + 'Nation', nationSchema)
+
 }

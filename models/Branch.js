@@ -41,7 +41,7 @@ module.exports = (mongoose) => {
     BranchesSchema.virtual('region', {
         ref: 'Region',
         localField: 'REGIONID',
-        foreignField: 'REGION_ID',
+        foreignField: 'ID',
         justOne: true
     });
 

@@ -3,7 +3,12 @@ const mongoose = require('mongoose');
 const Model = db.Post;
 
 exports.findAll = (req, res) => {
-    Model.find().then(data => {
+    let filter = {};
+    if (req.query.region_id) {
+        filter.REGIONID = req.query.region_id
+    }
+
+    Model.find(filter).then(data => {
             res.send(data);
         })
         .catch(err => {

@@ -13,8 +13,11 @@ module.exports = (mongoose) => {
             required: true
         },
         RELATION_CODE: {
-            type: String,
-            required: true
+            type: Number,
+            required: true,
+            get: (v) => {
+                retun `0000` + v;
+            }
         },
         RELATION_FAMILY: {
             type: String,
@@ -47,10 +50,24 @@ module.exports = (mongoose) => {
         COD_CITY_BIRTH: {
             type: Number
         }
+    }, {
+        toJSON: {
+            virtuals: true
+        }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
+        toObject: {
+            virtuals: true
+        }
     });
 
+    FamilySchema.virtual('fullname').get(function () {
+        return `${this.RELATION_FAMILY} ${this.RELATION_NAME} ${this.RELATION_PATRONYMIC}`;
+    });
+    
+    FamilySchema.virtual('birthday').get(function () {
+        return `${this.DD.padStart(2, '0')}.${this.MM.padStart(2, '0')}.${this.RELATION_BIRTHDAY}`;
+    });
 
-    FamilySchema.virtual('family', {
+    FamilySchema.virtual('fam', {
         ref: 'ref-Family',
         localField: 'RELATION_CODE',
         foreignField: 'FAM_ID',
@@ -77,6 +94,8 @@ module.exports = (mongoose) => {
         foreignField: 'DISTR',
         justOne: true
     });
+
+
 
     return mongoose.model('Family', FamilySchema)
 }

@@ -4,9 +4,11 @@ module.exports = (app) => {
     var router = require("express").Router();
     // return all documents
     router.get('/', Model.findAll);
+    router.post('/', Model.create);
     router.get('/all', Model.findAllNodes);
     // return specific document by ID
     router.get('/:id', Model.findById);
+    router.delete('/delete/:id', Model.delete);
 
     app.use('/api/v1/Branch',router);
 }
