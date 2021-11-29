@@ -24,22 +24,32 @@ module.exports = (mongoose) => {
         },
         IN_OFFICE_DATE: {
             type: Number,
+        },
+        COD_PR_OFF: {
+            type: String,
+            required: true
+        },
+        PR_OFF: String
+    }, {
+        toJSON: {
+            virtuals: true
+        }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
+        toObject: {
+            virtuals: true
         }
-    },
-        {
-            toJSON: {
-                virtuals: true
-            }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
-            toObject: {
-                virtuals: true
-            }
-        }
-    );
+    });
 
     EmpSchema.virtual('post', {
         ref: 'Post',
         localField: 'POST_CODE',
         foreignField: 'ID',
+        justOne: true
+    });
+
+    EmpSchema.virtual('prich', {
+        ref: 'ref-Prich',
+        localField: 'COD_PR_OFFs',
+        foreignField: 'PRICH_ID',
         justOne: true
     });
 

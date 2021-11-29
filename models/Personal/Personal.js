@@ -63,7 +63,7 @@ module.exports = (mongoose) => {
             required: true
         },
         NATIONALITY_CODE: {
-            type: Number,
+            type: String,
             required: true
         },
         EDUCATION_TITLE_CODE: {
@@ -185,10 +185,12 @@ module.exports = (mongoose) => {
         }
     }, {
         toJSON: {
-            virtuals: true
+            virtuals: true,
+            getters: true
         }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
         toObject: {
-            virtuals: true
+            virtuals: true,
+            getters: true
         } // So `console.log()` and other functions that use `toObject()` include virtuals
     });
 
@@ -271,8 +273,8 @@ module.exports = (mongoose) => {
 
     PersonalSchema.virtual('citizen', {
         ref: 'ref-Str',
-        localField: 'COD_STR_LIVE',
-        foreignField: 'COD_STR_SITIZENT',
+        localField: 'COD_STR_SITIZENT',
+        foreignField: 'CODE_STR',
         justOne: true
     });
 

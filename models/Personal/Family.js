@@ -13,11 +13,8 @@ module.exports = (mongoose) => {
             required: true
         },
         RELATION_CODE: {
-            type: Number,
-            required: true,
-            get: (v) => {
-                retun `0000` + v;
-            }
+            type: String,
+            required: true
         },
         RELATION_FAMILY: {
             type: String,
@@ -62,7 +59,7 @@ module.exports = (mongoose) => {
     FamilySchema.virtual('fullname').get(function () {
         return `${this.RELATION_FAMILY} ${this.RELATION_NAME} ${this.RELATION_PATRONYMIC}`;
     });
-    
+
     FamilySchema.virtual('birthday').get(function () {
         return `${this.DD.padStart(2, '0')}.${this.MM.padStart(2, '0')}.${this.RELATION_BIRTHDAY}`;
     });
