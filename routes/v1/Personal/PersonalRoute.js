@@ -3,6 +3,7 @@ module.exports = (app) => {
 
     var router = require("express").Router();
     router.get('/all/:id', Model.findByIdAll);
+    router.get('/skud/:id', Model.getSKUDActivity);
 
     app.use('/api/v1/Personal/Personal',router);
 }
